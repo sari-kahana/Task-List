@@ -33,7 +33,7 @@ export function TasksScreen({ navigation }) {
 
     const addTask = () => {
         if (newTask.trim().length === 0) {
-            Alert.alert('שגיאה', 'אנא הזן טקסט למשימה');
+            Alert.alert('error', 'please enter text for the task');
             return;
         }
         const newTasks = [...tasks, { id: Date.now().toString(), text: newTask }];
@@ -88,7 +88,7 @@ export function TasksScreen({ navigation }) {
                 <View style={Styles.modalContainer}>
                     <View style={Styles.modalContent}>
                         <Text style={Styles.modalTitle}>Add New Task</Text>
-                        <TextInput style={Styles.input} placeholder="כתוב משימה..." value={newTask} onChangeText={setNewTask} />
+                        <TextInput style={Styles.input} placeholder="Write Your Task..." value={newTask} onChangeText={setNewTask} />
                         <View style={Styles.modalButtons}>
                             <TouchableOpacity onPress={addTask}><Text>Add</Text></TouchableOpacity>
                             <TouchableOpacity onPress={() => setModalVisible(false)}><Text>Cancel</Text></TouchableOpacity>
